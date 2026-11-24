@@ -13,6 +13,9 @@ TEXT = (
     "and you will spend ten years wishing you had waited until you were awake.\n"
 )
 
+# The gate accepts 1 to 280 characters of UTF-8 text, not only white space.
+assert 1 <= len(TEXT) <= 280 and TEXT.strip(), "entry text outside the gate"
+
 
 def main() -> None:
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
